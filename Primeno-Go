@@ -1,0 +1,32 @@
+package main
+
+import "fmt"
+
+var flag bool
+
+func prime(u int) {
+	  flag = false
+    if u == 1{
+      fmt.Println(u, "is not a prime number")
+    }else if u > 1{
+      for i:=2;i<u;i++{
+          if (u % i) == 0{
+            flag = true
+            break
+          } 
+      }
+    }  
+    if flag{
+      fmt.Println(u, "is not a prime number")
+    }else{
+      fmt.Println(u, "is  a prime number")
+    }
+}
+
+func main() {
+	var u int
+	fmt.Println("Enter the number:  ")
+	fmt.Scanln(&u)
+	prime(u)
+
+}
