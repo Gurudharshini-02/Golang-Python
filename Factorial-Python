@@ -1,0 +1,11 @@
+def factorial(u):
+    fact=1
+    if u==0 or u==1:
+        print("The Factorial of number is:  ",u)
+    else:
+        for i in range(2,u+1):
+            fact=fact*i
+        print("The factorial of number is: ",fact)
+
+u=int(input("Enter the number:"))
+factorial(u)
