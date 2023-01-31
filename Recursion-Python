@@ -1,0 +1,9 @@
+def factorial(u):
+    if u==0 or u==1:
+        return u
+    else:
+        return u*factorial(u-1)
+
+u=int(input("Enter the number:"))
+print("The Factorial of the given no is: ",factorial(u))
+
