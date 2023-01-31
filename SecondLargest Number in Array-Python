@@ -1,0 +1,14 @@
+a=[]
+size=int(input("Enter the size of array: "))
+print("Enter the elements:    ")
+for i in range(size):
+    ele=int(input())
+    a.append(ele)
+print("The Orginial Array is: ",a)
+for i in range(size):
+    for j in range(i+1,size):
+        if a[i]<a[j]:
+            temp=a[i]
+            a[i]=a[j]
+            a[j]=temp
+print("Second Largest number of the array is: ",a[1])
