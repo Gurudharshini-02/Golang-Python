@@ -1,0 +1,33 @@
+package main
+
+import "fmt"
+
+var res,dig int
+
+func armstrong(u int) {
+temp:=u
+  res=0
+  for u>0{
+    dig=u%10
+    cube:=(dig*dig*dig)
+    res=res+cube
+    u=u/10 
+  }
+  if temp==res{
+    print("It is an armstrong number")
+  }else{
+    print("Not an armstrong number")
+  }
+        
+}
+
+
+
+
+func main() {
+	var u int
+	fmt.Println("Enter the number:  ")
+	fmt.Scanln(&u)
+	armstrong(u)
+
+}
