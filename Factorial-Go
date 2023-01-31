@@ -1,0 +1,25 @@
+package main
+
+import "fmt"
+
+var fact int
+
+func factorial(u int) {
+	fact = 1
+	if u == 0 || u == 1 {
+		fmt.Println("The Factorial of number is:  ", u)
+	} else {
+		for i := 2; i < u+1; i++ {
+			fact = fact * i
+		}
+		fmt.Println("The factorial of number is: ", fact)
+	}
+}
+
+func main() {
+	var u int
+	fmt.Println("Enter the number:  ")
+	fmt.Scanln(&u)
+	factorial(u)
+
+}
