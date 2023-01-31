@@ -1,0 +1,16 @@
+package main
+
+import "fmt"
+
+func recursive(u int) int{
+  if u==0 || u==1{
+      return u
+  }
+  return u*recursive(u-1)
+}
+func main() {
+  var u int
+	fmt.Println("Enter the number:  ")
+	fmt.Scanln(&u)
+  fmt.Println("The Factorial of the given no is: ",recursive(u))
+}
