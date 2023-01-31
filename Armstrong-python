@@ -1,0 +1,13 @@
+def  amStrong(n):
+    temp=n
+    res=0
+    while n>0:
+        dig=n%10
+        res=res+(dig**3)
+        n=n/10
+    if temp==res:
+        print("It is armstrong number")
+    else:
+        print("Not a armstrong number ")
+a=int(input("Enter a word: "))
+amStrong(a)
