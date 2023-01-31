@@ -1,0 +1,25 @@
+package main
+
+import "fmt"
+
+var a,b,c int
+
+func fibo(u int) {
+a=-1
+  b=1
+  fmt.Println("The Fibonnaci series of given number is: ")
+  for i:=0;i<u;i++{
+    c=a+b
+    fmt.Println(c)
+    a=b
+    b=c
+  }       
+}
+
+func main() {
+	var u int
+	fmt.Println("Enter the number:  ")
+	fmt.Scanln(&u)
+	fibo(u)
+
+}
