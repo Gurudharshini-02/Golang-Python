@@ -1,0 +1,32 @@
+package main
+
+import "fmt"
+
+var res,dig int
+
+func numPalindrome(u int) {
+ temp:=u
+  res=0
+  for u>0{
+    dig=u%10
+    res=res*10+dig
+    u=u/10 
+  }
+  if temp==res{
+    print("Palindrome")
+  }else{
+    print("Not a palindrome")
+  }
+        
+}
+
+
+
+
+func main() {
+	var u int
+	fmt.Println("Enter the number:  ")
+	fmt.Scanln(&u)
+	numPalindrome(u)
+
+}
