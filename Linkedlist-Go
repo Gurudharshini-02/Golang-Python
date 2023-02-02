@@ -1,0 +1,89 @@
+package main
+
+import (
+	"fmt"
+)
+
+type linkedlist struct {
+	data int
+	next  *linkedlist
+}
+
+func (node *linkedlist) insertLast(num int) {
+	var temp = &linkedlist{}
+	temp.data = num
+	temp.next = nil
+	if node == nil {
+		node = temp
+	} else {
+		var p = &linkedlist{}
+		p = node
+		for p.next != nil {
+			p = p.next
+		}
+		p.next = temp
+
+	}
+
+}
+func (node *linkedlist) travesal() {
+	var p = &linkedlist{}
+	p = node.next
+	for p != nil {
+		fmt.Printf("%d ->", p.data)
+		p = p.next
+	}
+  fmt.Println("\n")
+}
+func (node *linkedlist) deleteFirst() *linkedlist {
+	node = node.next
+	return node
+}
+func (node *linkedlist) deleteLast() {
+	var p *linkedlist = node
+	for p.next.next != nil {
+		p = p.next
+	}
+	p.next = nil
+}
+func (node *linkedlist) insertByPosition(num, position int) {
+	var p *linkedlist = node
+	var temp = &linkedlist{}
+	for i := 0; i < position; i++ {
+		p = p.next
+	}
+	temp.data = num
+	temp.next = p.next
+	p.next = temp
+}
+func (node *linkedlist) deleteByPosition(position int) {
+	var p *linkedlist = node
+	for i := 0; i < position; i++ {
+		p = p.next
+	}
+	p.next = p.next.next
+}
+func (node *linkedlist) insertFirst(num int) *linkedlist {
+	var temp = &linkedlist{}
+	temp.data = num
+	temp.next = node.next
+	node.next = temp
+	return node
+}
+func main() {
+	l:= new(linkedlist)
+  l.insertLast(23)
+  l.insertLast(45)
+  l.insertLast(36)
+  l.travesal()
+  l.insertFirst(10)
+  l.travesal()
+  l.insertByPosition(55,3)
+  l.travesal()
+  l.deleteFirst()
+  l.travesal()
+  l.deleteLast()
+  l.travesal()
+  l.deleteByPosition(2)
+  l.travesal()
+}
