@@ -1,0 +1,112 @@
+class Node:
+    __slots__ = 'data', 'next'
+
+    def __init__(self,data,next):
+        self.data = data
+        self.next = next
+
+
+class CircularLinkedList:
+    def __init__(self):
+        self.head=None
+        self.tail=None
+        self.size=0
+    def __len__(self):
+        return self.size
+    def isempty(self):
+        if self.__len__()==0:
+            return True
+        return False
+    def insertLast(self,e):
+        new=Node(e,None)
+        if self.isempty():
+            new.next=self.head
+            self.head=new
+        else:
+            new.next=self.tail.next
+            self.tail.next=new
+        self.tail=new
+        self.size+=1
+
+    def insertFirst(self,e):
+        new=Node(e,None)
+        if self.isempty():
+            new.next=new
+            self.head=new
+            self.tail=new
+        else:
+            self.tail.next = new
+            new.next=self.head
+            self.head=new
+        self.size+=1
+    def insertByPosition(self,e,pos):
+        new=Node(e,None)
+        index=1
+        p=self.head
+        while index < (pos-1):#position-1 because place node in given postion we have to travese position-1 nodes
+            p=p.next
+            index+=1
+        new.next=p.next
+        p.next=new
+        self.size+=1
+
+    def removeFirst(self):
+        if self.isempty():
+            print("The list is empty")
+        e=self.head.data
+        self.tail.next=self.head.next
+        self.head=self.tail.next
+        self.size-=1
+        if self.isempty():
+            self.head=None
+            self.tail=None
+        print(f"The element deleted was{e}")
+    def removeLast(self):
+        if self.isempty():
+            print("The list is empty")
+        p=self.head
+        index=1
+        while index < (self.__len__()-1):
+            p=p.next
+            index+=1
+        self.tail=p
+        p=p.next
+        e=p.data
+        self.tail.next=self.head
+        self.size -=1
+        print(f"The element deleted is{e}")
+    def removeByPosition(self,pos):
+        if self.isempty():
+            print("List is empty")
+        index=1
+        p=self.head
+        while index<(pos-1):
+            p=p.next
+            index+=1
+        e=p.next.data #to store data will be deleted
+        p.next=p.next.next
+        self.size-=1
+        print(f"The element deleted is{e}")
+    def travesal(self):
+        index = 0
+        p=self.head
+        while index < self.__len__() :
+            print(p.data,end='-->')
+            p=p.next
+            index+=1
+        print()
+l=CircularLinkedList()
+l.insertLast(78)
+l.insertLast(88)
+l.insertLast(90)
+l.travesal()
+l.insertFirst(60)
+l.travesal()
+l.insertByPosition(98,3)
+l.travesal()
+l.removeFirst()
+l.travesal()
+l.removeLast()
+l.travesal()
+l.removeByPosition(3)
+l.travesal()
